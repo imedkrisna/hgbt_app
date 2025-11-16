@@ -29,12 +29,12 @@ format:
 #    html-math-method: mathml
     theme: united
     mainfont: serif
-  pdf:
-    toc: false
-    number-sections: true
-    colorlinks: true
-    documentclass: scrartcl
-    papersize: a4
+#  pdf:
+#    toc: false
+#    number-sections: true
+#    colorlinks: true
+#    documentclass: scrartcl
+#    papersize: a4
   docx:
     toc: false
     number-sections: true
@@ -46,6 +46,7 @@ library(tidyverse)
 library(readxl)
 library(WDI)
 library(fixest)
+library(modelsummary)
 ```
 
 ## Data
@@ -56,7 +57,27 @@ Data dikumpulkan berdasarkan laporan tahunan.
 
 ```{r}
 dat<-read_excel("dat/HGBT.xlsx",sheet="data")
+dut<-read_excel("dat/wpi.xlsx")
+dat<-dat|>inner_join(dut)
+dat$L1<-dat$L/dat$WPI*100
+dat$K1<-dat$K/dat$WPI*100
+dat$V1<-dat$V/dat$WPI*100
+dat$lL<-log(dat$L1)
+dat$lK<-log(dat$K1)
+dat$lV<-log(dat$V1)
+reg1<-feols(data=dat,lV~lK+lL+HGBT)
+reg2<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan)
+reg3<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan+Tahun)
 
+```
+
+```{r}
+regtab<- list(
+  "OLS" = reg1,
+  "FE"  = reg2,
+  "TWFE"=reg3
+)
+modelsummary(regtab,stars=TRUE)
 ```
 
 ## References {.unnumbered}
