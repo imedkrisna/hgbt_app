@@ -1,0 +1,62 @@
+---
+title: "Dampak HGBT"
+author:
+  - name: Krisna Gupta
+    id: kg
+    orcid: 0000-0001-8695-0514
+    email: imade.krisna@poltekapp.ac.id
+    affiliation: 
+      - name: Politeknik APP Jakarta
+        city: Jakarta
+        url: www.poltekapp.ac.id
+abstract: > 
+  Di sini saya membahas soal isu-isu kontemporer dalam perdagangan internasional
+bibliography: ref.bib
+csl: apa.csl
+citation: 
+  container-title: Working paper
+  type: article-journal
+#  volume:  
+#  issue:  
+#  issued:
+#  doi: 
+#  url:
+execute: 
+  echo: false
+format: 
+  html: 
+    code-fold: true
+#    html-math-method: mathml
+    theme: united
+    mainfont: serif
+  pdf:
+    toc: false
+    number-sections: true
+    colorlinks: true
+    documentclass: scrartcl
+    papersize: a4
+  docx:
+    toc: false
+    number-sections: true
+---
+
+```{r}
+#| warning: false
+library(tidyverse)
+library(readxl)
+library(WDI)
+library(fixest)
+```
+
+## Data
+
+Data dikumpulkan berdasarkan laporan tahunan.
+
+## Hasil
+
+```{r}
+dat<-read_excel("dat/HGBT.xlsx",sheet="data")
+
+```
+
+## References {.unnumbered}
