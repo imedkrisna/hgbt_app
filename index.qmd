@@ -29,7 +29,7 @@ format:
 #    html-math-method: mathml
     theme: united
     mainfont: serif
-#  pdf:
+#  pdf: default
 #    toc: false
 #    number-sections: true
 #    colorlinks: true
@@ -62,13 +62,18 @@ dat<-dat|>inner_join(dut)
 dat$L1<-dat$L/dat$WPI*100
 dat$K1<-dat$K/dat$WPI*100
 dat$V1<-dat$V/dat$WPI*100
-dat$lL<-log(dat$L1)
-dat$lK<-log(dat$K1)
-dat$lV<-log(dat$V1)
+dat$lL1<-log(dat$L1)
+dat$lK1<-log(dat$K1)
+dat$lV1<-log(dat$V1)
+dat$lL<-log(dat$L)
+dat$lK<-log(dat$K)
+dat$lV<-log(dat$V)
 reg1<-feols(data=dat,lV~lK+lL+HGBT)
 reg2<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan)
 reg3<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan+Tahun)
-
+reg4<-feols(data=dat,lV1~lK1+lL1+HGBT)
+reg5<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan)
+reg6<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan+Tahun)
 ```
 
 ```{r}
@@ -78,6 +83,13 @@ regtab<- list(
   "TWFE"=reg3
 )
 modelsummary(regtab,stars=TRUE)
+
+regtab1<- list(
+  "OLS" = reg4,
+  "FE"  = reg5,
+  "TWFE"=reg6
+)
+modelsummary(regtab1,stars=TRUE)
 ```
 
 ## References {.unnumbered}

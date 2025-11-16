@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.11.15)  16 NOV 2025 23:43
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2025.11.15)  17 NOV 2025 00:15
  restricted system commands enabled.
 **index.tex
 (./index.tex
@@ -82,12 +82,12 @@ ex-cache/generic/names/luaotfload-names.luc.gz) (c:/texlive/2025/texmf-dist/tex
 Package: typearea 2025/09/09 v3.48 KOMA-Script package (type area)
 \ta@bcor=\skip50
 \ta@div=\count273
-Package typearea Info: You've used standard option `a4paper'.
+Package typearea Info: You've used standard option `letterpaper'.
 (typearea)             This is correct!
-(typearea)             Internally I'm using `paper=a4'.
+(typearea)             Internally I'm using `paper=letter'.
 (typearea)             If you'd like to set the option with \KOMAoptions,
-(typearea)             you'd have to use `paper=a4' there
-(typearea)             instead of `a4paper', too.
+(typearea)             you'd have to use `paper=letter' there
+(typearea)             instead of `letterpaper', too.
 \ta@hblk=\skip51
 \ta@vblk=\skip52
 \ta@temp=\skip53
@@ -95,14 +95,14 @@ Package typearea Info: You've used standard option `a4paper'.
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 11
 (typearea)             BCOR = 0.0pt
-(typearea)             \paperwidth      = 597.50793pt
-(typearea)              \textwidth      = 434.55125pt
-(typearea)              DIV departure   = -10%
-(typearea)              \evensidemargin = 9.20834pt
-(typearea)              \oddsidemargin  = 9.20834pt
-(typearea)             \paperheight     = 845.04694pt
-(typearea)              \textheight     = 623.00027pt
-(typearea)              \topmargin      = -32.84755pt
+(typearea)             \paperwidth      = 614.295pt
+(typearea)              \textwidth      = 446.76004pt
+(typearea)              DIV departure   = -14%
+(typearea)              \evensidemargin = 11.49748pt
+(typearea)              \oddsidemargin  = 11.49748pt
+(typearea)             \paperheight     = 794.96999pt
+(typearea)              \textheight     = 582.20026pt
+(typearea)              \topmargin      = -37.40001pt
 (typearea)              \headheight     = 17.0pt
 (typearea)              \headsep        = 20.40001pt
 (typearea)              \topskip        = 11.0pt
@@ -1226,14 +1226,14 @@ l.188 \begin{talltblr}
                     [         %% tabularray outer open
 
 Here is how much of LuaTeX's memory you used:
- 24526 strings out of 476081
+ 24524 strings out of 476081
  100000,1373583 words of node,token memory allocated
- 3811 words of node memory still in use:
-   28 hlist, 2 vlist, 6 rule, 13 disc, 7 local_par, 3 dir, 2 math, 116 glue, 15 
-kern, 37 penalty, 2 margin_kern, 188 glyph, 94 attribute, 79 glue_spec, 94 attri
-bute_list, 2 temp, 6 write, 4 pdf_dest, 14 pdf_colorstack nodes
+ 3891 words of node memory still in use:
+   33 hlist, 2 vlist, 6 rule, 13 disc, 7 local_par, 3 dir, 2 math, 114 glue, 17 
+kern, 40 penalty, 1 margin_kern, 185 glyph, 102 attribute, 80 glue_spec, 102 att
+ribute_list, 2 temp, 6 write, 6 pdf_dest, 14 pdf_colorstack nodes
    avail lists: 1:1,2:3,3:1,5:4,8:1,10:2,12:1
- 46603 multiletter control sequences out of 65536+600000
- 61 fonts using 18911551 bytes
+ 46601 multiletter control sequences out of 65536+600000
+ 61 fonts using 18911475 bytes
  108i,6n,114p,11226b,335s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
