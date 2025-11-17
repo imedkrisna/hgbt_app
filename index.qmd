@@ -69,7 +69,7 @@ dat$lL<-log(dat$L)
 dat$lK<-log(dat$K)
 dat$lV<-log(dat$V)
 
-datasummary(L+M+K+R+V~factor(HGBT)*(Mean+SD),data=dat,
+datasummary(L+M+K+R+V~factor(HGBT)*(Mean+Median+SD),data=dat,
   labels = c(L = "Labor cost", K = "Capital cost", M = "Material cost",
   R="Revenue",V="Value add"),
   title="Deskriptif statistik",
