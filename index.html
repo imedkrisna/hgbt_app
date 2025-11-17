@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id" xml:lang="id"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -36,7 +56,39 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-e4387c7b043c711828edcc6c5484ed4a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -44,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
+<div class="quarto-alternate-formats"><h2>Format Lain</h2><ul><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -54,8 +106,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
+  <div class="quarto-title-meta-heading">Penulis</div>
+  <div class="quarto-title-meta-heading">Afiliasi</div>
   
     <div class="quarto-title-meta-contents">
     <p class="author">Krisna Gupta <a href="mailto:imade.krisna@poltekapp.ac.id" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0001-8695-0514" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
@@ -78,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
   
 <div>
   <div class="abstract">
-    <div class="block-title">Abstract</div>
+    <div class="block-title">Abstrak</div>
     <p>Di sini saya membahas soal isu-isu kontemporer dalam perdagangan internasional</p>
   </div>
 </div>
@@ -87,16 +139,94 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>Data dikumpulkan berdasarkan laporan tahunan.</p>
+<section id="pendahuluan" class="level2">
+<h2 class="anchored" data-anchor-id="pendahuluan">Pendahuluan</h2>
+<p>ikutin aja docx sebelumnya</p>
 </section>
-<section id="hasil" class="level2">
-<h2 class="anchored" data-anchor-id="hasil">Hasil</h2>
-<div class="cell">
+<section id="studi-literatur" class="level2">
+<h2 class="anchored" data-anchor-id="studi-literatur">Studi literatur</h2>
+<p>Tambahin literatur di manajemen tentang dampak dari subsidi input ke perusahaan.</p>
+</section>
+<section id="metodologi-penelitian" class="level2">
+<h2 class="anchored" data-anchor-id="metodologi-penelitian">Metodologi penelitian</h2>
+<section id="desain-penelitian" class="level3">
+<h3 class="anchored" data-anchor-id="desain-penelitian">Desain penelitian</h3>
+<p>Artikel ini menggunakan pendekatan fungsi produksi yang sama dengan <span class="citation" data-cites="corong">Corong dkk. (<a href="#ref-corong" role="doc-biblioref">2017</a>)</span>, di mana produksi sebuah perusahaan diasumsikan dengan menggunakan fungsi produksi berjenjang. Jenjang pertama adalah keluaran (<em>output</em>, <span class="math inline">\(Q\)</span>) sebagai fungsi komplementer dari masukan (<em>input</em>, <span class="math inline">\(M\)</span>) dan nilai tambah (<em>Factor value add</em>, <span class="math inline">\(V\)</span>). VA sendiri, kemudian, merupakan fungsi dari Cobb-Douglass dengan kapital (<span class="math inline">\(K\)</span>) dan tenaga kerja (<span class="math inline">\(L\)</span>) sebagai komponennya.</p>
+<div id="fig-mermaid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mermaid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  A[Q]--&gt;B{{Leontief}};
+  B--&gt;C[M];
+  B--&gt;D[V];
+  D--&gt;E{{Cobb-Douglass}};
+  E--&gt;F[K];
+  E--&gt;G[L];
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mermaid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Gambar&nbsp;1: Diagram fungsi produksi
+</figcaption>
+</figure>
+</div>
+<p>Kita hitung V sebagai keluaran dikurangi dengan biaya masukan, sehingga V memiliki fungsi sebagai berikut:</p>
+<p><span id="eq-1"><span class="math display">\[
+V_i=AK_i^{\beta_k}L_i^{\beta_L}
+\tag{1}\]</span></span></p>
+<p>di mana <span class="math inline">\(V_i\)</span> adalah nilai tambah faktor produksi dari perusahaan <span class="math inline">\(i\)</span>, <span class="math inline">\(K_i\)</span> dan <span class="math inline">\(L_i\)</span> adalah kapital dan tenaga kerja yang digunakan oleh perusahaan <span class="math inline">\(i\)</span>, sementara <span class="math inline">\(A\)</span> adalah produktivitas industri.</p>
+<p>Modifikasi dari persamaan <a href="#eq-1" class="quarto-xref">Perhitungan&nbsp;1</a> dilakukan untuk mengakomodir adanya perbedaan antara perusahaan yang menggunakan HGBT dengan perusahaan yang tidak menggunakan HGBT. Kita asumsikan bahwa HGBT memiliki dampak positif terhadap pendapatan yang dihasilkan oleh suatu perusahaan. Efek ini akan muncul secara dikotomis. Dengan kata lain:</p>
+<p><span id="eq-2"><span class="math display">\[
+V_i =
+\begin{cases}
+A^1_i K_i^{\beta_k}L_i^{\beta_L}, &amp; i \in \{\text{penerima HGBT}\} \\
+A^0_i K_i^{\beta_k}L_i^{\beta_L},   &amp; i \in \{\text{non-penerima HGBT}\}
+\end{cases}
+\tag{2}\]</span></span></p>
+<p>di mana <span class="math inline">\(A^1_i\)</span> adalah produktivitas dari industri yang menerima HGBT, <span class="math inline">\(A^0_i\)</span> adalah produktivitas dari industri yang tidak menerima HGBT, dan <span class="math inline">\(A^1_i&gt;A^0_i\)</span>.</p>
+<p>Dengan melakukan transformasi logaritma, kita akan mendapatkan sebuah persamaan linear sebagai berikut:</p>
+<p><span id="eq-3"><span class="math display">\[
+v_i =
+\begin{cases}
+a^1 + \beta_K k_i+\beta_L l_i, &amp; i \in \{\text{penerima HGBT}\} \\
+a^0 + \beta_K k_i + \beta_L l_i,   &amp; i \in \{\text{non-penerima HGBT}\}
+\end{cases}
+\tag{3}\]</span></span></p>
+<p>di mana huruf kecil melambangkan transformasi natural log dari variabel aslinya. Jika diasumsikan bahwa <span class="math inline">\(a^1&gt;a^0\)</span>, definisikan <span class="math inline">\(\eta=a^1-a^0\)</span>, kita akan mendapatkan sebuah linear model:</p>
+<p><span id="eq-4"><span class="math display">\[
+v_i = a^0_i +\beta_K k_i + \beta_L l_i + \eta H+\varepsilon_i
+\tag{4}\]</span></span></p>
+<p>yang dapat diestimasikan dengan metode regresi linear. <span class="math inline">\(\eta\)</span> adalah dampak HGBT, sementara <span class="math inline">\(H\)</span> adalah variabel dummy di mana <span class="math inline">\(H=1\)</span> jika <span class="math inline">\(i\)</span> adalah penerima HGBT.</p>
+<p>Dengan demikian, hipotesis penelitian ini adalah sebagai berikut:</p>
+<blockquote class="blockquote">
+<p>Keberhasilan program HGBT dalam meningkatkan produktivitas, maka <span class="math inline">\(\eta\)</span> akan bernilai positif dan signifikan.</p>
+</blockquote>
+<p>Akan dilakukan tiga jenis regresi berbeda. Pertama adalah regresi linear dengan variabel dummy <span class="math inline">\(H\)</span>, kemudian kita perkenalkan Fixed Effect, dan Two-way Fixed Effect untuk mengatasi variabel yang tidak dapat diobservasi yang melekat ke individu sepanjang tahun <span class="citation" data-cites="wool nick">(<a href="#ref-nick" role="doc-biblioref">Huntington-Klein, t.t.</a>; <a href="#ref-wool" role="doc-biblioref">Wooldridge, 2008</a>)</span>.</p>
+</section>
+<section id="sumber-data" class="level3">
+<h3 class="anchored" data-anchor-id="sumber-data">Sumber data</h3>
+<p>Dibutuhkan data yang tepat untuk mendukung hipotesis penelitian di atas. Ada tiga peraturan acuan di penelitian ini. Pertama adalah Peraturan Menteri Energi dan Sumber Daya Mineral Republik Indonesia Nomor 40 Tahun 2016 Tentang Harga Gas Bumi untuk Industri Tertentu. Kedua adalah Peraturan Presiden Republik Indonesia Nomor 121 Tahun 2020 tentang Perubahan atas Peraturan Presiden Nomor 40 Tahun 2016 tentang Penetapan Harga Gas Bumi. Ketiga adalah Keputusan Menteri Energi dan Sumber Daya Mineral Republik Indonesia Nomor 91.K/MG.01/MEM.M/2023 tentang Penggunaa Gas Bumi Tertentu dan Harga Gas Bumi Tertentu di Bidang Industri.</p>
+<p>Meskipun tingkat peraturan dari ketiga peraturan ini berbeda, ketiganya memiliki persamaan yaitu berupa adanya lampiran yang berisi nama-nama perusahaan yang menerima fasilitas harga gas bumi yang lebih murah. Dari nama-nama tersebut, sebagian besar diantaranya adalah perusahaan terbuka atau Badan Usaha Milik Negara (BUMN) yang laporan tahunannya dipublikasikan secara umum.</p>
+<p>Dari laporan-laporan tahunan tersebut, diambil informasi yang dibutuhkan untuk melakukan estimasi regresi linear. Beberapa informasi yang diambil adalah total pendapatan sebagai <em>proxy</em> <span class="math inline">\(Q\)</span>, biaya tenaga kerja sebagai <em>proxy</em> <span class="math inline">\(L\)</span>, biaya bunga dan penyusutan sebagai <em>proxy</em> <span class="math inline">\(K\)</span> dan boaya material dan energi sebagai <em>proxy</em> <span class="math inline">\(M\)</span>. Selain perusahaan yang ada di peraturan tersebut, terdapat juga perusahaan di industri sejenis yang tidak ada di lampiran peraturan tentang penerima HGBT, yang berarti perusahaan-perusahaan ini tidak menerima HGBT.</p>
+<div class="cell" data-tbl-cap-location="top">
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(Tahun)`</code></pre>
 </div>
+<div id="tbl-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabel&nbsp;1: Deskriptif statistik sampel
+</figcaption>
+<div aria-describedby="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -104,27 +234,27 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_hbocd7jtcvpwd4pv0vho = TinyTable.createTableFunctions("tinytable_hbocd7jtcvpwd4pv0vho");
+      const tableFns_qe34cfcc0g4d6893j3b9 = TinyTable.createTableFunctions("tinytable_qe34cfcc0g4d6893j3b9");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '-1', j: 4 } ], css_id: 'tinytable_css_8zb6ok1qclqcj49804ik',}, 
-          { positions: [ { i: '-1', j: 3 }, { i: '-1', j: 6 }, { i: '-1', j: 7 } ], css_id: 'tinytable_css_h1f7fdzbcu6jct2nls43',}, 
-          { positions: [ { i: '5', j: 2 }, { i: '5', j: 3 }, { i: '5', j: 4 }, { i: '5', j: 5 }, { i: '5', j: 6 }, { i: '5', j: 7 } ], css_id: 'tinytable_css_l998gjjwz3y3o67o6un0',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '1', j: 5 }, { i: '2', j: 5 }, { i: '3', j: 5 }, { i: '4', j: 5 }, { i: '1', j: 6 }, { i: '2', j: 6 }, { i: '3', j: 6 }, { i: '4', j: 6 }, { i: '1', j: 7 }, { i: '2', j: 7 }, { i: '3', j: 7 }, { i: '4', j: 7 } ], css_id: 'tinytable_css_03xkht216jqr50lremjl',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 } ], css_id: 'tinytable_css_25hylq9qi71naz9jb87p',}, 
-          { positions: [ { i: '-1', j: 2 }, { i: '-1', j: 5 } ], css_id: 'tinytable_css_o4tz9okg7wlgf3zoygzd',}, 
-          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_ctm575r7pmah8d17je11',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_blix6tztmtxdxwjh82rs',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_63i1btkkwzcvnvxmfmf1',}, 
-          { positions: [ { i: '-1', j: 1 } ], css_id: 'tinytable_css_ylh6arhiwu8jpij9bpk9',}, 
+          { positions: [ { i: '-1', j: 4 } ], css_id: 'tinytable_css_m7stbhe1381kvqz5svpc',}, 
+          { positions: [ { i: '-1', j: 3 }, { i: '-1', j: 6 }, { i: '-1', j: 7 } ], css_id: 'tinytable_css_mdf17ysrfzcmh3it4zxd',}, 
+          { positions: [ { i: '5', j: 2 }, { i: '5', j: 3 }, { i: '5', j: 4 }, { i: '5', j: 5 }, { i: '5', j: 6 }, { i: '5', j: 7 } ], css_id: 'tinytable_css_af0uc5t38vedqnqbnw90',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '1', j: 5 }, { i: '2', j: 5 }, { i: '3', j: 5 }, { i: '4', j: 5 }, { i: '1', j: 6 }, { i: '2', j: 6 }, { i: '3', j: 6 }, { i: '4', j: 6 }, { i: '1', j: 7 }, { i: '2', j: 7 }, { i: '3', j: 7 }, { i: '4', j: 7 } ], css_id: 'tinytable_css_2tg3yq1gi2lo93gdkzou',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 }, { i: '0', j: 7 } ], css_id: 'tinytable_css_is93oo9is5jsibenjet2',}, 
+          { positions: [ { i: '-1', j: 2 }, { i: '-1', j: 5 } ], css_id: 'tinytable_css_hcfhc8n4xp2o5kzewhnt',}, 
+          { positions: [ { i: '5', j: 1 } ], css_id: 'tinytable_css_kbwlxbhlwoee2khgfd88',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 } ], css_id: 'tinytable_css_g6fsw3886meymibz17k1',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_znxhuxrtiegomlw28hdn',}, 
+          { positions: [ { i: '-1', j: 1 } ], css_id: 'tinytable_css_h1ehdkffzuoyrat2anil',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_hbocd7jtcvpwd4pv0vho.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_qe34cfcc0g4d6893j3b9.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -133,20 +263,20 @@ ul.task-list li input[type="checkbox"] {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_8zb6ok1qclqcj49804ik, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_8zb6ok1qclqcj49804ik {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 3%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_h1f7fdzbcu6jct2nls43, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_h1f7fdzbcu6jct2nls43 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_l998gjjwz3y3o67o6un0, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_l998gjjwz3y3o67o6un0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_03xkht216jqr50lremjl, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_03xkht216jqr50lremjl { text-align: right }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_25hylq9qi71naz9jb87p, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_25hylq9qi71naz9jb87p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_o4tz9okg7wlgf3zoygzd, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_o4tz9okg7wlgf3zoygzd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 3%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_ctm575r7pmah8d17je11, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_ctm575r7pmah8d17je11 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_blix6tztmtxdxwjh82rs, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_blix6tztmtxdxwjh82rs { text-align: left }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_63i1btkkwzcvnvxmfmf1, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_63i1btkkwzcvnvxmfmf1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_hbocd7jtcvpwd4pv0vho td.tinytable_css_ylh6arhiwu8jpij9bpk9, #tinytable_hbocd7jtcvpwd4pv0vho th.tinytable_css_ylh6arhiwu8jpij9bpk9 {  position: relative; --border-bottom: 0; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_m7stbhe1381kvqz5svpc, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_m7stbhe1381kvqz5svpc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 3%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_mdf17ysrfzcmh3it4zxd, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_mdf17ysrfzcmh3it4zxd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_af0uc5t38vedqnqbnw90, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_af0uc5t38vedqnqbnw90 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_2tg3yq1gi2lo93gdkzou, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_2tg3yq1gi2lo93gdkzou { text-align: right }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_is93oo9is5jsibenjet2, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_is93oo9is5jsibenjet2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: right }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_hcfhc8n4xp2o5kzewhnt, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_hcfhc8n4xp2o5kzewhnt {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 3%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_kbwlxbhlwoee2khgfd88, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_kbwlxbhlwoee2khgfd88 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_g6fsw3886meymibz17k1, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_g6fsw3886meymibz17k1 { text-align: left }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_znxhuxrtiegomlw28hdn, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_znxhuxrtiegomlw28hdn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_qe34cfcc0g4d6893j3b9 td.tinytable_css_h1ehdkffzuoyrat2anil, #tinytable_qe34cfcc0g4d6893j3b9 th.tinytable_css_h1ehdkffzuoyrat2anil {  position: relative; --border-bottom: 0; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_hbocd7jtcvpwd4pv0vho" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
-        <caption>Deskriptif statistik</caption>
+      <table class="tinytable" id="tinytable_qe34cfcc0g4d6893j3b9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="1"> </th>
@@ -216,9 +346,41 @@ ul.task-list li input[type="checkbox"] {
 <!-- hack to avoid NA insertion in last line -->
 </div>
 </div>
-<p>aowkaowkaowkoawkoakwo</p>
-<p>oakwoakwoakowako</p>
+</figure>
+</div>
+</div>
 <div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#tbl-1" class="quarto-xref">Tabel&nbsp;1</a> menunjukkan data dari observasi yang dikumpulkan dari tahun 2015 sampai 2024. Kami membagi dua deskriptif statistiknya antara penerima HGBT (<span class="math inline">\(H=1\)</span>) dan non-penerima HGBT (<span class="math inline">\(H=0\)</span>). Dapat dilihat bahwa rata-rata penjualan dan nilai tambah dari penerima HGBT lebih besar daripada non-penerima HGBT.</p>
+<p>Perlu diingat bahwa mungkin saja sebuah perusahaan adalah non-penerima dan berubah menjadi penerima di waktu salah satu peraturan baru di atas. Di samping itu, tidak ada jaminan tidak adanya bias seleksi. Kita tidak dapat menyimpulkan bahwa penerima HGBT menjadi lebih produktif ketika belum menerima HGBT. Bisa saja relasinya sebaliknya: perusahaan yang lebih besar memiliki lebih banyak sumber daya untuk melobi pemerintah menjadi penerima HGBT.</p>
+</section>
+</section>
+<section id="hasil-analisis" class="level2">
+<h2 class="anchored" data-anchor-id="hasil-analisis">Hasil analisis</h2>
+<p>Dengan data yang telah ditunjukkan di subbab sebelumnya, analisis regresi sudah dapat dilakukan. Seperti dibahas di bab sebelumnya, regresi dilakukan tiga kali. Regresi pertama adalah regresi multivariat sederhana, kedua diperkenalkan fixed effect dan yang ketiga dilakukan fixed dan time effect (two-way fixed effect, TWFE).</p>
+<div class="cell" data-tbl-cap-location="top">
+<div id="tbl-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabel&nbsp;2: Hasil regresi nilai tambah
+</figcaption>
+<div aria-describedby="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -226,25 +388,25 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_e804aa9ur0e53a0mpt7w = TinyTable.createTableFunctions("tinytable_e804aa9ur0e53a0mpt7w");
+      const tableFns_dxtujijej3qk1xg00xl2 = TinyTable.createTableFunctions("tinytable_dxtujijej3qk1xg00xl2");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '19', j: 2 }, { i: '19', j: 3 }, { i: '19', j: 4 } ], css_id: 'tinytable_css_om6dmdm2kqi1behtjhnr',}, 
-          { positions: [ { i: '8', j: 2 }, { i: '8', j: 3 }, { i: '8', j: 4 } ], css_id: 'tinytable_css_2jbdq3xovf0lc4bg7xos',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '9', j: 4 }, { i: '10', j: 4 }, { i: '11', j: 4 }, { i: '12', j: 4 }, { i: '13', j: 4 }, { i: '14', j: 4 }, { i: '15', j: 4 }, { i: '16', j: 4 }, { i: '17', j: 4 }, { i: '18', j: 4 } ], css_id: 'tinytable_css_5cqd72nf72ct7buxl1rh',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_f1jkr2nrtlvu5gv3y5q8',}, 
-          { positions: [ { i: '19', j: 1 } ], css_id: 'tinytable_css_vk2r0hshw4ia3h6gwz4y',}, 
-          { positions: [ { i: '8', j: 1 } ], css_id: 'tinytable_css_b57a6e5dlilwpo1q6sc0',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 } ], css_id: 'tinytable_css_ujylntcj30rcn5ce3f36',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_2diua2fttccum0fpxm08',}, 
+          { positions: [ { i: '19', j: 2 }, { i: '19', j: 3 }, { i: '19', j: 4 } ], css_id: 'tinytable_css_ntovrrwtsprl0d5rqoln',}, 
+          { positions: [ { i: '8', j: 2 }, { i: '8', j: 3 }, { i: '8', j: 4 } ], css_id: 'tinytable_css_bozb3emte8g315nfzcqz',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '9', j: 4 }, { i: '10', j: 4 }, { i: '11', j: 4 }, { i: '12', j: 4 }, { i: '13', j: 4 }, { i: '14', j: 4 }, { i: '15', j: 4 }, { i: '16', j: 4 }, { i: '17', j: 4 }, { i: '18', j: 4 } ], css_id: 'tinytable_css_mcufcjnxbztk7mlbtbi9',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_uvzoyz22nhpky9y4xwsm',}, 
+          { positions: [ { i: '19', j: 1 } ], css_id: 'tinytable_css_9pkbr6tjove7ubrq4smv',}, 
+          { positions: [ { i: '8', j: 1 } ], css_id: 'tinytable_css_t13hcpozbxfj0874j4bk',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 } ], css_id: 'tinytable_css_ghvh8xid5xcv2jwx9048',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_q15e5cuuheismid5g5r1',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_e804aa9ur0e53a0mpt7w.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_dxtujijej3qk1xg00xl2.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -253,18 +415,18 @@ ul.task-list li input[type="checkbox"] {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_om6dmdm2kqi1behtjhnr, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_om6dmdm2kqi1behtjhnr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_2jbdq3xovf0lc4bg7xos, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_2jbdq3xovf0lc4bg7xos {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_5cqd72nf72ct7buxl1rh, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_5cqd72nf72ct7buxl1rh { text-align: center }
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_f1jkr2nrtlvu5gv3y5q8, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_f1jkr2nrtlvu5gv3y5q8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_vk2r0hshw4ia3h6gwz4y, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_vk2r0hshw4ia3h6gwz4y {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_b57a6e5dlilwpo1q6sc0, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_b57a6e5dlilwpo1q6sc0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_ujylntcj30rcn5ce3f36, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_ujylntcj30rcn5ce3f36 { text-align: left }
-    #tinytable_e804aa9ur0e53a0mpt7w td.tinytable_css_2diua2fttccum0fpxm08, #tinytable_e804aa9ur0e53a0mpt7w th.tinytable_css_2diua2fttccum0fpxm08 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_ntovrrwtsprl0d5rqoln, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_ntovrrwtsprl0d5rqoln {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_bozb3emte8g315nfzcqz, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_bozb3emte8g315nfzcqz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_mcufcjnxbztk7mlbtbi9, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_mcufcjnxbztk7mlbtbi9 { text-align: center }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_uvzoyz22nhpky9y4xwsm, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_uvzoyz22nhpky9y4xwsm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_9pkbr6tjove7ubrq4smv, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_9pkbr6tjove7ubrq4smv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_t13hcpozbxfj0874j4bk, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_t13hcpozbxfj0874j4bk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_ghvh8xid5xcv2jwx9048, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_ghvh8xid5xcv2jwx9048 { text-align: left }
+    #tinytable_dxtujijej3qk1xg00xl2 td.tinytable_css_q15e5cuuheismid5g5r1, #tinytable_dxtujijej3qk1xg00xl2 th.tinytable_css_q15e5cuuheismid5g5r1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_e804aa9ur0e53a0mpt7w" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
-        <caption>Hasil regresi tanpa deflator</caption>
+      <table class="tinytable" id="tinytable_dxtujijej3qk1xg00xl2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
         <thead>
               <tr>
                 <th scope="col" data-row="0" data-col="1"> </th>
@@ -395,6 +557,18 @@ ul.task-list li input[type="checkbox"] {
     </div>
 <!-- hack to avoid NA insertion in last line -->
 </div>
+</div>
+</figure>
+</div>
+</div>
+<p><a href="#tbl-2" class="quarto-xref">Tabel&nbsp;2</a> menunjukkan hasil regresi. Kolom pertama menunjukkan hasil regresi OLS, kolom ke-2 menunjukkan hasil regresi fixed effect (FE) sementara kolom ke-3 menunjukkan hasil regressi two-way fixed effect (TWFE).</p>
+<div class="cell" data-tbl-cap-location="top">
+<div id="tbl-3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabel&nbsp;3: Hasil regresi nilai tambah dengan deflator
+</figcaption>
+<div aria-describedby="tbl-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <!-- preamble start -->
 
@@ -402,25 +576,25 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
       // Create table-specific functions using external factory
-      const tableFns_6qb32k6jxt6s6mqleji9 = TinyTable.createTableFunctions("tinytable_6qb32k6jxt6s6mqleji9");
+      const tableFns_xgmrlrcrw0elelyjp8r0 = TinyTable.createTableFunctions("tinytable_xgmrlrcrw0elelyjp8r0");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '19', j: 2 }, { i: '19', j: 3 }, { i: '19', j: 4 } ], css_id: 'tinytable_css_r4iklifhxv5y6jomik7m',}, 
-          { positions: [ { i: '8', j: 2 }, { i: '8', j: 3 }, { i: '8', j: 4 } ], css_id: 'tinytable_css_s1hyy6lo4hsc4m1g2o1r',}, 
-          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '9', j: 4 }, { i: '10', j: 4 }, { i: '11', j: 4 }, { i: '12', j: 4 }, { i: '13', j: 4 }, { i: '14', j: 4 }, { i: '15', j: 4 }, { i: '16', j: 4 }, { i: '17', j: 4 }, { i: '18', j: 4 } ], css_id: 'tinytable_css_bie18g7f3fdy8yrx9vwu',}, 
-          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_2hbfcn3eb0v5bgfan4os',}, 
-          { positions: [ { i: '19', j: 1 } ], css_id: 'tinytable_css_ayrjcyhh49ncvyze89af',}, 
-          { positions: [ { i: '8', j: 1 } ], css_id: 'tinytable_css_884u7g9d32kvzgx5cke3',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 } ], css_id: 'tinytable_css_caihebfjosdsa9sg616d',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_0snpzpokm6q4xj7f4jk7',}, 
+          { positions: [ { i: '19', j: 2 }, { i: '19', j: 3 }, { i: '19', j: 4 } ], css_id: 'tinytable_css_55kio1f6ffpc1i2hi0gi',}, 
+          { positions: [ { i: '8', j: 2 }, { i: '8', j: 3 }, { i: '8', j: 4 } ], css_id: 'tinytable_css_203oundydvhof5b2wsfy',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '9', j: 4 }, { i: '10', j: 4 }, { i: '11', j: 4 }, { i: '12', j: 4 }, { i: '13', j: 4 }, { i: '14', j: 4 }, { i: '15', j: 4 }, { i: '16', j: 4 }, { i: '17', j: 4 }, { i: '18', j: 4 } ], css_id: 'tinytable_css_fjppq8jza9bv9yqsokmc',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_5y9jqi0xhvqffxdjeulj',}, 
+          { positions: [ { i: '19', j: 1 } ], css_id: 'tinytable_css_dzcz7rqvt8aqai7wtmwc',}, 
+          { positions: [ { i: '8', j: 1 } ], css_id: 'tinytable_css_qnpseab9huc9yxeesyv0',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 } ], css_id: 'tinytable_css_3iqvk0wqvazmow4zz1xd',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_9gazncmr16fr7vxkpj9m',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_6qb32k6jxt6s6mqleji9.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_xgmrlrcrw0elelyjp8r0.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -429,18 +603,18 @@ ul.task-list li input[type="checkbox"] {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
     <style>
     /* tinytable css entries after */
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_r4iklifhxv5y6jomik7m, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_r4iklifhxv5y6jomik7m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_s1hyy6lo4hsc4m1g2o1r, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_s1hyy6lo4hsc4m1g2o1r {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_bie18g7f3fdy8yrx9vwu, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_bie18g7f3fdy8yrx9vwu { text-align: center }
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_2hbfcn3eb0v5bgfan4os, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_2hbfcn3eb0v5bgfan4os {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_ayrjcyhh49ncvyze89af, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_ayrjcyhh49ncvyze89af {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_884u7g9d32kvzgx5cke3, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_884u7g9d32kvzgx5cke3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_caihebfjosdsa9sg616d, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_caihebfjosdsa9sg616d { text-align: left }
-    #tinytable_6qb32k6jxt6s6mqleji9 td.tinytable_css_0snpzpokm6q4xj7f4jk7, #tinytable_6qb32k6jxt6s6mqleji9 th.tinytable_css_0snpzpokm6q4xj7f4jk7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_55kio1f6ffpc1i2hi0gi, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_55kio1f6ffpc1i2hi0gi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_203oundydvhof5b2wsfy, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_203oundydvhof5b2wsfy {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_fjppq8jza9bv9yqsokmc, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_fjppq8jza9bv9yqsokmc { text-align: center }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_5y9jqi0xhvqffxdjeulj, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_5y9jqi0xhvqffxdjeulj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_dzcz7rqvt8aqai7wtmwc, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_dzcz7rqvt8aqai7wtmwc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_qnpseab9huc9yxeesyv0, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_qnpseab9huc9yxeesyv0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_3iqvk0wqvazmow4zz1xd, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_3iqvk0wqvazmow4zz1xd { text-align: left }
+    #tinytable_xgmrlrcrw0elelyjp8r0 td.tinytable_css_9gazncmr16fr7vxkpj9m, #tinytable_xgmrlrcrw0elelyjp8r0 th.tinytable_css_9gazncmr16fr7vxkpj9m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: black; --line-color-left: black; --line-color-right: black; --line-color-top: black; --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
     <div class="container">
-      <table class="tinytable" id="tinytable_6qb32k6jxt6s6mqleji9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
-        <caption>Hasil regresi dengan IHP deflator</caption>
+      <table class="tinytable" id="tinytable_xgmrlrcrw0elelyjp8r0" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
         <thead>
               <tr>
                 <th scope="col" data-row="0" data-col="1"> </th>
@@ -572,21 +746,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- hack to avoid NA insertion in last line -->
 </div>
 </div>
+</figure>
+</div>
+</div>
 </section>
 <section id="references" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+
+
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@article{gupta,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-corong" class="csl-entry" role="listitem">
+Corong, E. L., Hertel, T. W., McDougall, R., Tsigas, M. E., &amp; Mensbrugghe, D. van der. (2017). The Standard GTAP Model, Version 7. <em>Journal of Global Economic Analysis</em>, <em>2</em>(1), 1–119. <a href="https://doi.org/10.21642/JGEA.020101AF">https://doi.org/10.21642/JGEA.020101AF</a>
+</div>
+<div id="ref-nick" class="csl-entry" role="listitem">
+Huntington-Klein, N. (t.t.). <em>The Effect: An Introduction to Research Design and Causality</em>. Chapman &amp; Hall. <a href="https://theeffectbook.net/">https://theeffectbook.net/</a>
+</div>
+<div id="ref-wool" class="csl-entry" role="listitem">
+Wooldridge, J. M. (2008). <em>Introductory Econometrics: A Modern Approach</em>. Cengage Learning.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Kutipan</h2><div><div class="quarto-appendix-secondary-label">Kutipan BibTeX:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@article{gupta,
   author = {Gupta, Krisna},
-  title = {Dampak {HGBT}},
+  title = {Dampak HGBT},
   journal = {Working paper},
-  langid = {en},
+  langid = {id},
   abstract = {Di sini saya membahas soal isu-isu kontemporer dalam
     perdagangan internasional}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-gupta" class="csl-entry quarto-appendix-citeas" role="listitem">
-Gupta, K. (n.d.). Dampak HGBT. <em>Working Paper</em>.
+</code><button title="Salin ke Papan Klip" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Untuk atribusi, mohon kutip karya ini sebagai:</div><div id="ref-gupta" class="csl-entry quarto-appendix-citeas" role="listitem">
+Gupta, K. (n.d.). Dampak HGBT. <em>Working paper</em>.
 </div></div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -614,12 +802,12 @@ Gupta, K. (n.d.). Dampak HGBT. <em>Working Paper</em>.
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Disalin!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Disalin!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

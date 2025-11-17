@@ -1,5 +1,6 @@
 ---
 title: "Dampak HGBT"
+lang: id
 author:
   - name: Krisna Gupta
     id: kg
@@ -64,17 +65,21 @@ library(modelsummary)
 
 Artikel ini menggunakan pendekatan fungsi produksi yang sama dengan @corong, di mana produksi sebuah perusahaan diasumsikan dengan menggunakan fungsi produksi berjenjang. Jenjang pertama adalah keluaran (_output_, $Q$) sebagai fungsi komplementer dari masukan (_input_, $M$) dan nilai tambah (_Factor value add_, $V$). VA sendiri, kemudian, merupakan fungsi dari Cobb-Douglass dengan kapital ($K$) dan tenaga kerja ($L$) sebagai komponennya.
 
+::: {#fig-mermaid fig-align="center"}
 ```{mermaid}
 flowchart TD
-  A[Q]-->B[M];
-  A[Q]-->C[VA];
-  B--Leontief--C;
-  C-->D[K];
-  C-->E[L];
-  D--Cobb-Douglass-->E
+  A[Q]-->B{{Leontief}};
+  B-->C[M];
+  B-->D[V];
+  D-->E{{Cobb-Douglass}};
+  E-->F[K];
+  E-->G[L];
 ```
 
-Kita hitung V sebagai keluaran dikurangi dengan biaya masukan, sehingga V memiliki fungsi sebagai berikut:
+Diagram fungsi produksi
+:::
+
+@fig-mermaid memberikan ilustrasi fungsi produksi sesuai dengan @corong. Penelitian ini akan berfokus pada fungsi nilai tambah faktor produksi $V$, dihitung sebagai keluaran dikurangi dengan biaya masukan. $V$ memiliki fungsi sebagai berikut:
 
 $$
 V_i=AK_i^{\beta_k}L_i^{\beta_L}
@@ -87,8 +92,8 @@ Modifikasi dari persamaan @eq-1 dilakukan untuk mengakomodir adanya perbedaan an
 $$
 V_i =
 \begin{cases}
-A^1_i K_i^{\beta_k}L_i^{\beta_L}, & i \in \left{\text{penerima HGBT}\right} \\
-A^0_i K_i^{\beta_k}L_i^{\beta_L},   & i \in \left{\text{non-penerima HGBT}\right}
+A^1_i K_i^{\beta_k}L_i^{\beta_L}, & i \in \{\text{penerima HGBT}\} \\
+A^0_i K_i^{\beta_k}L_i^{\beta_L},   & i \in \{\text{non-penerima HGBT}\}
 \end{cases}
 $$ {#eq-2}
 
@@ -99,8 +104,8 @@ Dengan melakukan transformasi logaritma, kita akan mendapatkan sebuah persamaan 
 $$
 v_i =
 \begin{cases}
-a^1 + \beta_K k_i+\beta_L l_i, & i \in \left{\text{penerima HGBT}\right} \\
-a^0 + \beta_K k_i + \beta_L l_i,   & i \in \left{\text{non-penerima HGBT}\right}
+a^1 + \beta_K k_i+\beta_L l_i, & i \in \{\text{penerima HGBT}\} \\
+a^0 + \beta_K k_i + \beta_L l_i,   & i \in \{\text{non-penerima HGBT}\}
 \end{cases}
 $$ {#eq-3}
 
@@ -177,17 +182,18 @@ modelsummary(regtab,stars=TRUE,
   notes=c('sumber: olahan penulis'))
 ```
 
-
+@tbl-2 menunjukkan hasil regresi. Kolom pertama menunjukkan hasil regresi OLS, kolom ke-2 menunjukkan hasil regresi fixed effect (FE) sementara kolom ke-3 menunjukkan hasil regressi two-way fixed effect (TWFE). 
 
 ```{r}
-
+#| label: tbl-3
+#| tbl-cap: Hasil regresi nilai tambah dengan deflator
+#| tbl-cap-location: top
 regtab1<- list(
   "OLS" = reg4,
   "FE"  = reg5,
   "TWFE"=reg6
 )
 modelsummary(regtab1,stars=TRUE,
-  title='Hasil regresi dengan IHP deflator',
   notes=c('sumber: olahan penulis'))
 ```
 
