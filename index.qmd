@@ -69,8 +69,15 @@ dat$lL<-log(dat$L)
 dat$lK<-log(dat$K)
 dat$lV<-log(dat$V)
 
-datasummary(All(dat)~factor(HGBT)*(Mean+SD),data=dat)
+datasummary(L+M+K+R+V~factor(HGBT)*(Mean+SD),data=dat,
+  labels = c(L = "Labor cost", K = "Capital cost", M = "Material cost",
+  R="Revenue",V="Value add"),
+  title="Deskriptif statistik",
+  notes=c('sumber: penulis'))
+
 ```
+
+aowkaowkaowkoawkoakwo
 
 ```{r}
 reg1<-feols(data=dat,lV~lK+lL+HGBT)
@@ -81,20 +88,26 @@ reg5<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan)
 reg6<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan+Tahun)
 ```
 
+oakwoakwoakowako
+
 ```{r}
 regtab<- list(
   "OLS" = reg1,
   "FE"  = reg2,
   "TWFE"=reg3
 )
-modelsummary(regtab,stars=TRUE)
+modelsummary(regtab,stars=TRUE,
+  title='Hasil regresi tanpa deflator',
+  notes=c('sumber: olahan penulis'))
 
 regtab1<- list(
   "OLS" = reg4,
   "FE"  = reg5,
   "TWFE"=reg6
 )
-modelsummary(regtab1,stars=TRUE)
+modelsummary(regtab1,stars=TRUE,
+  title='Hasil regresi dengan IHP deflator',
+  notes=c('sumber: olahan penulis'))
 ```
 
 ## References {.unnumbered}
