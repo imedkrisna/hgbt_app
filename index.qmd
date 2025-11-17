@@ -116,13 +116,20 @@ Dengan demikian, hipotesis penelitian ini adalah sebagai berikut:
 
 > Keberhasilan program HGBT dalam meningkatkan produktivitas, maka $\eta$ akan bernilai positif dan signifikan.
 
+Akan dilakukan tiga jenis regresi berbeda. Pertama adalah regresi linear dengan variabel dummy $H$, kemudian kita perkenalkan Fixed Effect, dan Two-way Fixed Effect untuk mengatasi variabel yang tidak dapat diobservasi yang melekat ke individu sepanjang tahun [@wool;@nick].
+
 ### Sumber data
 
-Data dikumpul
+Dibutuhkan data yang tepat untuk mendukung hipotesis penelitian di atas. Ada tiga peraturan acuan di penelitian ini. Pertama adalah Peraturan Menteri Energi dan Sumber Daya Mineral Republik Indonesia Nomor 40 Tahun 2016 Tentang Harga Gas Bumi untuk Industri Tertentu. Kedua adalah Peraturan Presiden Republik Indonesia Nomor 121 Tahun 2020 tentang Perubahan atas Peraturan Presiden Nomor 40 Tahun 2016 tentang Penetapan Harga Gas Bumi. Ketiga adalah Keputusan Menteri Energi dan Sumber Daya Mineral Republik Indonesia Nomor 91.K/MG.01/MEM.M/2023 tentang Penggunaa Gas Bumi Tertentu dan Harga Gas Bumi Tertentu di Bidang Industri.
 
-## Hasil
+Meskipun tingkat peraturan dari ketiga peraturan ini berbeda, ketiganya memiliki persamaan yaitu berupa adanya lampiran yang berisi nama-nama perusahaan yang menerima fasilitas harga gas bumi yang lebih murah. Dari nama-nama tersebut, sebagian besar diantaranya adalah perusahaan terbuka atau Badan Usaha Milik Negara (BUMN) yang laporan tahunannya dipublikasikan secara umum.
+
+Dari laporan-laporan tahunan tersebut, diambil informasi yang dibutuhkan untuk melakukan estimasi regresi linear. Beberapa informasi yang diambil adalah total pendapatan sebagai _proxy_ $Q$, biaya tenaga kerja sebagai _proxy_ $L$, biaya bunga dan penyusutan sebagai _proxy_ $K$ dan boaya material dan energi sebagai _proxy_ $M$. Selain perusahaan yang ada di peraturan tersebut, terdapat juga perusahaan di industri sejenis yang tidak ada di lampiran peraturan tentang penerima HGBT, yang berarti perusahaan-perusahaan ini tidak menerima HGBT.
 
 ```{r}
+#| label: tbl-1
+#| tbl-cap: Deskriptif statistik sampel
+#| tbl-cap-location: top
 dat<-read_excel("dat/HGBT.xlsx",sheet="data")
 dut<-read_excel("dat/wpi.xlsx")
 dat<-dat|>inner_join(dut)
@@ -139,33 +146,40 @@ dat$lV<-log(dat$V)
 datasummary(L+M+K+R+V~factor(HGBT)*(Mean+Median+SD),data=dat,
   labels = c(L = "Labor cost", K = "Capital cost", M = "Material cost",
   R="Revenue",V="Value add"),
-  title="Deskriptif statistik",
   notes=c('sumber: penulis'))
-
 ```
 
-aowkaowkaowkoawkoakwo
+@tbl-1 menunjukkan data dari observasi yang dikumpulkan dari tahun 2015 sampai 2024. Kami membagi dua deskriptif statistiknya antara penerima HGBT ($H=1$) dan non-penerima HGBT ($H=0$). Dapat dilihat bahwa rata-rata penjualan dan nilai tambah dari penerima HGBT lebih besar daripada non-penerima HGBT. 
+
+Perlu diingat bahwa mungkin saja sebuah perusahaan adalah non-penerima dan berubah menjadi penerima di waktu salah satu peraturan baru di atas. Di samping itu, tidak ada jaminan tidak adanya bias seleksi. Kita tidak dapat menyimpulkan bahwa penerima HGBT menjadi lebih produktif ketika belum menerima HGBT. Bisa saja relasinya sebaliknya: perusahaan yang lebih besar memiliki lebih banyak sumber daya untuk melobi pemerintah menjadi penerima HGBT.
+
+## Hasil analisis
+
+Dengan data yang telah ditunjukkan di subbab sebelumnya, analisis regresi sudah dapat dilakukan. Seperti dibahas di bab sebelumnya, regresi dilakukan tiga kali. Regresi pertama adalah regresi multivariat sederhana, kedua diperkenalkan fixed effect dan yang ketiga dilakukan fixed dan time effect (two-way fixed effect, TWFE).
 
 ```{r}
+#| label: tbl-2
+#| tbl-cap: Hasil regresi nilai tambah
+#| tbl-cap-location: top
 reg1<-feols(data=dat,lV~lK+lL+HGBT)
 reg2<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan)
 reg3<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan+Tahun)
 reg4<-feols(data=dat,lV1~lK1+lL1+HGBT)
 reg5<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan)
 reg6<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan+Tahun)
-```
 
-oakwoakwoakowako
-
-```{r}
 regtab<- list(
   "OLS" = reg1,
   "FE"  = reg2,
   "TWFE"=reg3
 )
 modelsummary(regtab,stars=TRUE,
-  title='Hasil regresi tanpa deflator',
   notes=c('sumber: olahan penulis'))
+```
+
+
+
+```{r}
 
 regtab1<- list(
   "OLS" = reg4,
