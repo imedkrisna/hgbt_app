@@ -33,7 +33,7 @@ format:
 #    toc: false
 #    number-sections: true
 #    colorlinks: true
-#    documentclass: scrartcl
+#    documentclass: scrartcli
 #    papersize: a4
   docx:
     toc: false
@@ -68,6 +68,11 @@ dat$lV1<-log(dat$V1)
 dat$lL<-log(dat$L)
 dat$lK<-log(dat$K)
 dat$lV<-log(dat$V)
+
+datasummary(All(dat)~factor(HGBT)*(Mean+SD),data=dat)
+```
+
+```{r}
 reg1<-feols(data=dat,lV~lK+lL+HGBT)
 reg2<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan)
 reg3<-feols(data=dat,lV~lK+lL+HGBT|Perusahaan+Tahun)
