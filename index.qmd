@@ -47,7 +47,9 @@ ikutin aja docx sebelumnya
 
 ## Studi literatur
 
-Tambahin literatur di manajemen tentang dampak dari subsidi input ke perusahaan.
+Tambahin literatur di manajemen tentang dampak dari subsidi input/energi ke performa perusahaan.
+
+Tambahin deskripsi singkat soal peraturannya, perkembangannya (dari yg 2016 ke yg terbaru) serta jumlah penerima & industri2 yg menerima. Yaaa semacam riwayat HGBT gitu lah.
 
 
 ```{r}
@@ -178,11 +180,19 @@ regtab<- list(
   "FE"  = reg2,
   "TWFE"=reg3
 )
-modelsummary(regtab,stars=TRUE,
+modelsummary(regtab,stars=TRUE,gof_omit = 'FE|IC|RMSE|Std.|Adj.',
   notes=c('sumber: olahan penulis'))
 ```
 
-@tbl-2 menunjukkan hasil regresi. Kolom pertama menunjukkan hasil regresi OLS, kolom ke-2 menunjukkan hasil regresi fixed effect (FE) sementara kolom ke-3 menunjukkan hasil regressi two-way fixed effect (TWFE). 
+@tbl-2 menunjukkan hasil regresi. Kolom pertama menunjukkan hasil regresi OLS, kolom ke-2 menunjukkan hasil regresi fixed effect (FE) sementara kolom ke-3 menunjukkan hasil regressi two-way fixed effect (TWFE). Hasilnya cukup tipikal di industri penerima harga gas, di mana industri ini biasanya adalah industri padat modal sehingga multiplier dari kapital cenderung lebih besar daripada tenaga kerja [@gupta]. 
+
+Akan tetapi variabel yang penting di studi ini adalah variabel $H$. Variabel $H$ adalah variabel yang menunjukkan seberapa besar dampak HGBT terhadap nilai tambah perusahaan manufaktur. Dari regresi OLS (kolom 1), kita mendapatkan angka yang positif dan signifikan sebesar 0,152. Angka ini signifikan di level $\alpha=5\%$. Artinya, perusahaan penerima HGBT memiliki nilai tambah 15% lebih besar daripada sebelum menerima HGBT.
+
+Meski demikian, signifikansi ini hilang ketika kita memperkenalkan FE dan TWFE. Hal ini menunjukkan bahwa perbedaan ini bisa jadi berasal dari perbedaan _cross-sectional_, di mana karakteristik perususahaan penerima HGBT memang dari awal adalah perusahaan dengan nilai tambah yang lebih besar dibandingkan yang tidak menerima HGBT. 
+
+Artinya, meskipun kita bisa menyimpulkan bahwa perusahaan penerima HGBT memiliki nilai tambah yang lebih tinggi, kita tidak dapat menyimpulkan bahwa peningkatan tersebut berkat HGBT. Lebih mungkin sebaliknya: perusahaan yang memang dari awal memiliki nilai tambah tinggi memiliki peluang lebih tinggi untuk mendapatkan HGBT.
+
+Kami melakukan uji ketahanan model dengan menggunakan angka-angka yang dideflasi dengan menggunakan indeks harga produksi manufaktur (kategori C) dari Badan Pusat Statistik (BPS) [@bps1;@bps2]. Berdasarkan angka deflasi tersebut, dilakukan regresi yang sama. Semua variabel dideflasi menggunakan indeks yang sama. Dengan menggunakan deflator, kita dapat menghilangkan dampak peningkatan yang terjadi akibat kenaikan harga.
 
 ```{r}
 #| label: tbl-3
@@ -193,8 +203,26 @@ regtab1<- list(
   "FE"  = reg5,
   "TWFE"=reg6
 )
-modelsummary(regtab1,stars=TRUE,
+modelsummary(regtab1,stars=TRUE,gof_omit = 'FE|IC|RMSE|Std.|Adj.',
   notes=c('sumber: olahan penulis'))
 ```
+
+Hasil regresi dengan deflator dapat dilihat pada @tbl-3. Dapat kita lihat bahwa secara umum angka koefisien regresinya tidak berbeda secara signifikan dibandingkan dengan angka tanpa deflator, untuk semua model baik OLS, FE maupun TWFE. Nilai signifikansi dan koefisien dari HGBT juga tidam mengalami perbedaan. Nilai tambah bagi perusahaan yang menerima HGBT juga lebih tinggi 15% dibandingkan perusahaan yang tidak menerima HGBT.
+
+Penelitian ini berhasil menemukan adanya dampak HGBT bagi nilai tambah perusahaan. Akan tetapi, penelitian ini tidak berhasil mendapatkan indikasi kausalitas karena dampak HGBT tersebut hilang dengan adanya FE dan TWFE. Artinya, kemungkinan _reverse causality_ cukup tinggi. Bukannya perusahaan memiliki nilai tambah ekstra setelah menerima HGBT, tetapi perusahaan yang memang lebih besar cenderung lebih mungkin mendapatkan akses pada HGBT. Akibatnya, bisa saja HGBT sebenarnya tidak memiliki pengaruh pada nilai tambah perusahaan.
+
+Implikasi dari temuan di penelitian ini cukup penting. Utamanya karena kebijakan HGBT bukanlah kebijakan yang gratis. Kebijakan ini harus dibayar dengan potensi kehilangan pendapatan negara dari royalti eksploitasi gas alam. Harga gas yang dapat dimanipulasi pemerintah mengakibatkan berkurangnya insentif untuk melakukan eksplorasi di sisi hulu. Artinya, ongkos yang harus dibayar oleh kebijakan ini adalah kehilangan potensi pendapatan negara dan ketidakpastian di perkembangan sektor hulu.
+
+Meski demikian, kebijakan HGBT juga belum tentu berjalan sesuai rencana. Meskipun dipatoh harga yang lebih rendah bagi penerima HGBT, harga ini adalah harga distributor, yang masih mungkin ditambahkan dengan fee untuk distributor. Di samping itu, kuota untuk gas HGBT juga dapat dipotong oleh hulu, tergantung ketersediaan gas. Karena itu, bisa saja tidak semua produksi penerima HGBT menggunakan gas dengan harga yang lebih murah.
+
+Hasil temuan ini masih indikatif. Ada bias seleksi di penelitian ini, di mana hanya perusahaan yang laporan keuangannya terbuka yang diinspeksi oleh penelitian ini. Di samping itu, penelitian ini belum memasukkan beberapa variabel yang mungkin memiliki pengaruh yang besar, seperti indikator apakah perusahaan tersebut investasi asing, apakah perusahaan tersebut BUMN, maupun karakteristik level industri. Meskipun ukuran perusahaan bisa jadi indikasi dari semua karakteristik ini, tetapi akan lebih baik jika identifikasi ini ada.
+
+Namun yang lebih penting adalah tidak adanya mekanisme yang ajeg untuk mendapatkan hubungan kausalitas. Kebijakan industri seperti penerimaan HGBT memiliki kemungkinan endogenitas yang tinggi. Kementerian Perindustrian, ESDM dan Keuangan tentu tidak memilih industri dan perusahaan penerima secara acak. Ada karakteristik tertentu yang membuat industri-industri ini terpilih, yang tidak dapat dijelaskan tanpa adanya pengacakan atau kondisi quasi-eksperimental.
+
+Akan tetapi, penelitian ini adalah yang pertama yang menggunakan jumlah perusahaan terbuka penerima manfaat HGBT dengan observasi yang cukup banyak. Selain itu, penelitian ini menemukan indikasi adanya potensi bias seleksi yang tinggi karena menemukan signifikansi positif untuk OLS dan non-signifikansi untuk regresi FE dan TWFE. Data yang dikumpulkan oleh penelitian ini dapat menjadi sumbangsih nyata bagi penelitian di bidang kebijakan industrial, utamanya.
+
+## Kesimpulan
+
+tolong disimpulkan yagesya.
 
 ## References {.unnumbered}
