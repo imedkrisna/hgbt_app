@@ -40,6 +40,15 @@ format:
     number-sections: true
 ---
 
+## Pendahuluan
+
+ikutin aja docx sebelumnya
+
+## Studi literatur
+
+Tambahin literatur di manajemen tentang dampak dari subsidi input ke perusahaan.
+
+
 ```{r}
 #| warning: false
 library(tidyverse)
@@ -49,9 +58,67 @@ library(fixest)
 library(modelsummary)
 ```
 
-## Data
+## Metodologi penelitian
 
-Data dikumpulkan berdasarkan laporan tahunan.
+### Desain penelitian
+
+Artikel ini menggunakan pendekatan fungsi produksi yang sama dengan @corong, di mana produksi sebuah perusahaan diasumsikan dengan menggunakan fungsi produksi berjenjang. Jenjang pertama adalah keluaran (_output_, $Q$) sebagai fungsi komplementer dari masukan (_input_, $M$) dan nilai tambah (_Factor value add_, $V$). VA sendiri, kemudian, merupakan fungsi dari Cobb-Douglass dengan kapital ($K$) dan tenaga kerja ($L$) sebagai komponennya.
+
+```{mermaid}
+flowchart TD
+  A[Q]-->B[M];
+  A[Q]-->C[VA];
+  B--Leontief--C;
+  C-->D[K];
+  C-->E[L];
+  D--Cobb-Douglass-->E
+```
+
+Kita hitung V sebagai keluaran dikurangi dengan biaya masukan, sehingga V memiliki fungsi sebagai berikut:
+
+$$
+V_i=AK_i^{\beta_k}L_i^{\beta_L}
+$$ {#eq-1}
+
+di mana $V_i$ adalah nilai tambah faktor produksi dari perusahaan $i$, $K_i$ dan $L_i$ adalah kapital dan tenaga kerja yang digunakan oleh perusahaan $i$, sementara $A$ adalah produktivitas industri.
+
+Modifikasi dari persamaan @eq-1 dilakukan untuk mengakomodir adanya perbedaan antara perusahaan yang menggunakan HGBT dengan perusahaan yang tidak menggunakan HGBT. Kita asumsikan bahwa HGBT memiliki dampak positif terhadap pendapatan yang dihasilkan oleh suatu perusahaan. Efek ini akan muncul secara dikotomis. Dengan kata lain:
+
+$$
+V_i =
+\begin{cases}
+A^1_i K_i^{\beta_k}L_i^{\beta_L}, & i \in \left{\text{penerima HGBT}\right} \\
+A^0_i K_i^{\beta_k}L_i^{\beta_L},   & i \in \left{\text{non-penerima HGBT}\right}
+\end{cases}
+$$ {#eq-2}
+
+di mana $A^1_i$ adalah produktivitas dari industri yang menerima HGBT, $A^0_i$ adalah produktivitas dari industri yang tidak menerima HGBT, dan $A^1_i>A^0_i$.
+
+Dengan melakukan transformasi logaritma, kita akan mendapatkan sebuah persamaan linear sebagai berikut:
+
+$$
+v_i =
+\begin{cases}
+a^1 + \beta_K k_i+\beta_L l_i, & i \in \left{\text{penerima HGBT}\right} \\
+a^0 + \beta_K k_i + \beta_L l_i,   & i \in \left{\text{non-penerima HGBT}\right}
+\end{cases}
+$$ {#eq-3}
+
+di mana huruf kecil melambangkan transformasi natural log dari variabel aslinya. Jika diasumsikan bahwa $a^1>a^0$, definisikan $\eta=a^1-a^0$, kita akan mendapatkan sebuah linear model:
+
+$$
+v_i = a^0_i +\beta_K k_i + \beta_L l_i + \eta H+\varepsilon_i
+$$ {#eq-4}
+
+yang dapat diestimasikan dengan metode regresi linear. $\eta$ adalah dampak HGBT, sementara $H$ adalah variabel dummy di mana $H=1$ jika $i$ adalah penerima HGBT.
+
+Dengan demikian, hipotesis penelitian ini adalah sebagai berikut:
+
+> Keberhasilan program HGBT dalam meningkatkan produktivitas, maka $\eta$ akan bernilai positif dan signifikan.
+
+### Sumber data
+
+Data dikumpul
 
 ## Hasil
 
