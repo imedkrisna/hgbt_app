@@ -2,6 +2,7 @@ library(tidyverse)      # wajib buat data wrangling
 library(readxl)         # wajib buat baca data excel
 library(fixest)         # Buat regresi data panel
 library(modelsummary)   # buat bikin tabel deskripsi statistik dan hasil regresi
+library(writexl)        # Nulis excel output dari tibble
 
 # Data prep and summary
 dat<-read_excel("dat/HGBT.xlsx",sheet="data") # baca data kalian dari excel
@@ -37,17 +38,36 @@ modelsummary(regtab,stars=TRUE,gof_omit = 'FE|IC|RMSE|Std.|Adj.',
 
 ## Deflated
 
+reg4<-feols(data=dat,lV1~lK1+lL1+HGBT)
+reg5<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan)
+reg6<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan+Tahun)
+
 regtab1<- list(
   "OLS" = reg4,
   "FE"  = reg5,
   "TWFE" = reg6
 )
 
-reg4<-feols(data=dat,lV1~lK1+lL1+HGBT)
-reg5<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan)
-reg6<-feols(data=dat,lV1~lK1+lL1+HGBT|Perusahaan+Tahun)
-
 modelsummary(regtab1,stars=TRUE,gof_omit = 'FE|IC|RMSE|Std.|Adj.',
   notes=c('sumber: olahan penulis'),output="tab/regression_deflated.xlsx")
 
 # end of file
+
+## Collecting F-stat
+
+fstat<-tibble(
+  data=c("Level","Level","Level","Deflated", "Deflated","Deflated"),
+  Model=c("OLS","FE","TWFE","OLS","FE","TWFE"),
+  Ftest=c(fitstat(reg1,"f")|>capture.output(),
+          fitstat(reg2,"f")|>capture.output(),
+          fitstat(reg3,"f")|>capture.output(),
+          fitstat(reg4,"f")|>capture.output(),
+          fitstat(reg5,"f")|>capture.output(),
+          fitstat(reg6,"f")|>capture.output())
+)
+
+## Nulis fstatnya dalam bentuk excel
+write_xlsx(
+  fstat,
+  path = "tab/fstat.xlsx"
+)
